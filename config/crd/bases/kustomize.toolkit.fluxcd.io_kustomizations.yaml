@@ -141,30 +141,33 @@ spec:
                   Kustomization can be reconciled.
                 items:
                   description: |-
-                    DependencyReference defines a Kustomization dependency on a Kubernetes resource.
-                    When the dependency is a Kustomization, defaults are applied during reconciliation.
+                    DependencyReference contains enough information to locate the referenced Kubernetes resource object
+                    with optional built-in or CEL expression readiness check. When the dependency is a Flux Applier API
+                    resource (Kustomization or HelmRelease), defaults are applied during reconciliation.
                   properties:
                     apiVersion:
                       description: |-
-                        APIVersion of the resource to depend on, defaults to the Kustomization API
-                        group version when the dependency is a Kustomization.
+                        APIVersion of the resource to depend on, defaults to the API group version of the
+                        Flux Applier API resource (Kustomization or HelmRelease) that contains the reference
+                        when the dependency is of the same kind.
                       type: string
                     kind:
-                      description: Kind of the resource to depend on, defaults to
-                        Kustomization.
+                      description: |-
+                        Kind of the resource to depend on, defaults to the kind of the
+                        Flux Applier API resource (Kustomization or HelmRelease) that contains the reference.
                       type: string
                     name:
                       description: Name of the resource to depend on.
                       type: string
                     namespace:
                       description: |-
-                        Namespace of the resource to depend on, defaults to the namespace of the
-                        Kustomization resource object that contains the reference.
+                        Namespace of the resource to depend on, defaults to the namespace of the Flux
+                        Applier API resource (Kustomization or HelmRelease) that contains the reference.
                       type: string
                     ready:
                       description: |-
                         Ready checks if the resource Ready status condition is true, defaults to
-                        true when the dependency is a Kustomization.
+                        true when the dependency is a Flux Applier API resource (Kustomization or HelmRelease).
                       type: boolean
                     readyExpr:
                       description: |-

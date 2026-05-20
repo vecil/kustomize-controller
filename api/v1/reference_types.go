@@ -18,6 +18,8 @@ package v1
 
 import (
 	"fmt"
+
+	"github.com/fluxcd/pkg/apis/meta"
 )
 
 // CrossNamespaceSourceReference contains enough information to let you locate the
@@ -51,37 +53,8 @@ func (s *CrossNamespaceSourceReference) String() string {
 	return fmt.Sprintf("%s/%s", s.Kind, s.Name)
 }
 
-// DependencyReference defines a Kustomization dependency on a Kubernetes resource.
+// DependencyReference contains enough information to locate the referenced Kubernetes resource object
+// and optional CEL expression to assess its readiness.
+// with optional built-in or CEL expression readiness check.
 // When the dependency is a Kustomization, defaults are applied during reconciliation.
-type DependencyReference struct {
-	// APIVersion of the resource to depend on, defaults to the Kustomization API
-	// group version when the dependency is a Kustomization.
-	// +optional
-	APIVersion string `json:"apiVersion,omitempty"`
-
-	// Kind of the resource to depend on, defaults to Kustomization.
-	// +optional
-	Kind string `json:"kind,omitempty"`
-
-	// Name of the resource to depend on.
-	// +required
-	Name string `json:"name"`
-
-	// Namespace of the resource to depend on, defaults to the namespace of the
-	// Kustomization resource object that contains the reference.
-	// +optional
-	Namespace string `json:"namespace,omitempty"`
-
-	// Ready checks if the resource Ready status condition is true, defaults to
-	// true when the dependency is a Kustomization.
-	// +optional
-	Ready *bool `json:"ready,omitempty"`
-
-	// ReadyExpr is a CEL expression that can be used to assess the readiness
-	// of a dependency. When specified, the built-in readiness check
-	// is replaced by the logic defined in the CEL expression.
-	// To make the CEL expression additive to the built-in readiness check,
-	// the feature gate `AdditiveCELDependencyCheck` must be set to `true`.
-	// +optional
-	ReadyExpr string `json:"readyExpr,omitempty"`
-}
+type DependencyReference = meta.DependencyReference

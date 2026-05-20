@@ -364,19 +364,33 @@ func (in Kustomization) GetDeletionPolicy() string {
 	return in.Spec.DeletionPolicy
 }
 
-// GetDependsOn returns the dependencies as a list of meta.NamespacedObjectReference.
+// GetDependsOn returns the dependencies as a list of meta.DependencyReference.
 //
 // This function makes the Kustomization type conformant with the meta.ObjectWithDependencies interface
 // and allows the controller-runtime to index Kustomizations by their dependencies.
-func (in Kustomization) GetDependsOn() []meta.NamespacedObjectReference {
-	deps := make([]meta.NamespacedObjectReference, len(in.Spec.DependsOn))
+func (in Kustomization) GetDependsOn() []meta.DependencyReference {
+	deps := make([]meta.DependencyReference, len(in.Spec.DependsOn))
 	for i := range in.Spec.DependsOn {
-		deps[i] = meta.NamespacedObjectReference{
-			Name:      in.Spec.DependsOn[i].Name,
-			Namespace: in.Spec.DependsOn[i].Namespace,
+		deps[i] = meta.DependencyReference{
+			APIVersion: in.Spec.DependsOn[i].APIVersion,
+			Kind:       in.Spec.DependsOn[i].Kind,
+			Name:       in.Spec.DependsOn[i].Name,
+			Namespace:  in.Spec.DependsOn[i].Namespace,
+			Ready:      in.Spec.DependsOn[i].Ready,
+			ReadyExpr:  in.Spec.DependsOn[i].ReadyExpr,
 		}
 	}
 	return deps
+}
+
+// GetAPIVersion returns the APIVersion of the object.
+func (in Kustomization) GetAPIVersion() string {
+	return in.APIVersion
+}
+
+// GetKind returns the Kind of the object.
+func (in Kustomization) GetKind() string {
+	return in.Kind
 }
 
 // GetConditions returns the status conditions of the object.
