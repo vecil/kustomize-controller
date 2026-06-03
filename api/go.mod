@@ -2,6 +2,9 @@ module github.com/fluxcd/kustomize-controller/api
 
 go 1.26.0
 
+// TODO: Remove this after merging the proposed DependencyReference type extensions.
+replace github.com/fluxcd/pkg/apis/meta => github.com/vecil/fluxcd-pkg/apis/meta v0.0.0-20260603231400-6d1005a835a4
+
 require (
 	github.com/fluxcd/pkg/apis/kustomize v1.17.0
 	github.com/fluxcd/pkg/apis/meta v1.28.0

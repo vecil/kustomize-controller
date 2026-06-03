@@ -53,5 +53,7 @@ func (s *CrossNamespaceSourceReference) String() string {
 	return fmt.Sprintf("%s/%s", s.Kind, s.Name)
 }
 
-// DependencyReference defines a Kustomization dependency on another Kustomization resource.
+// DependencyReference contains enough information to locate the referenced Kubernetes resource object
+// with optional built-in or CEL expression readiness check.
+// When the dependency is a Kustomization, defaults are applied during reconciliation.
 type DependencyReference = meta.DependencyReference

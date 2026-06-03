@@ -50,7 +50,7 @@ type KustomizationSpec struct {
 	CommonMetadata *CommonMetadata `json:"commonMetadata,omitempty"`
 
 	// DependsOn may contain a DependencyReference slice
-	// with references to Kustomization resources that must be ready before this
+	// with references to Kubernetes resources that must be ready before this
 	// Kustomization can be reconciled.
 	// +optional
 	DependsOn []DependencyReference `json:"dependsOn,omitempty"`
@@ -372,8 +372,12 @@ func (in Kustomization) GetDependsOn() []meta.DependencyReference {
 	deps := make([]meta.DependencyReference, len(in.Spec.DependsOn))
 	for i := range in.Spec.DependsOn {
 		deps[i] = meta.DependencyReference{
-			Name:      in.Spec.DependsOn[i].Name,
-			Namespace: in.Spec.DependsOn[i].Namespace,
+			APIVersion: in.Spec.DependsOn[i].APIVersion,
+			Kind:       in.Spec.DependsOn[i].Kind,
+			Name:       in.Spec.DependsOn[i].Name,
+			Namespace:  in.Spec.DependsOn[i].Namespace,
+			Ready:      in.Spec.DependsOn[i].Ready,
+			ReadyExpr:  in.Spec.DependsOn[i].ReadyExpr,
 		}
 	}
 	return deps

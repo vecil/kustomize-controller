@@ -211,8 +211,6 @@ github.com/fluxcd/pkg/apis/event v0.26.0 h1:QzBRz9Qy91jzJmLlOhd4ecp6OWDpMVFvm311
 github.com/fluxcd/pkg/apis/event v0.26.0/go.mod h1:0yy7FMJABzq8PP5/VEi1Gro6ssPaPlH9xuPIoF+Rm6M=
 github.com/fluxcd/pkg/apis/kustomize v1.18.0 h1:FCNjViCLyKYj6lddpnjXybKBTC2eK6eXK9YOaNwLVTM=
 github.com/fluxcd/pkg/apis/kustomize v1.18.0/go.mod h1:mvtMtM4NNLipdCna6DYPC6Bd42xeaF15N+tNO+F6kxY=
-github.com/fluxcd/pkg/apis/meta v1.28.0 h1:eJjMlLnfObnh23cyUB6xiIwDbgJaRU2MgfzzuilLFxI=
-github.com/fluxcd/pkg/apis/meta v1.28.0/go.mod h1:3DmYMnyH3XdY8/g2gXfsVIGEd/zpcB2PEkuurv2vgHU=
 github.com/fluxcd/pkg/auth v0.42.0 h1:RniHLAvp/Ykrxxu9Y9acMSmOR/7HvncJrXfihql7OIU=
 github.com/fluxcd/pkg/auth v0.42.0/go.mod h1:U9xNHUyxOdPhxRnSW7dwloEF9EMeITxt84g8CD8YB3Q=
 github.com/fluxcd/pkg/cache v0.13.0 h1:MqtlgOwIVcGKKgV422e39O+KFSVMWuExKeRaMDBjJlk=
@@ -491,6 +489,8 @@ github.com/tjfoc/gmsm v1.4.1 h1:aMe1GlZb+0bLjn+cKTPEvvn9oUEBlJitaZiiBwsbgho=
 github.com/tjfoc/gmsm v1.4.1/go.mod h1:j4INPkHWMrhJb38G+J6W4Tw0AbuN8Thu3PbdVYhVcTE=
 github.com/urfave/cli v1.22.17 h1:SYzXoiPfQjHBbkYxbew5prZHS1TOLT3ierW8SYLqtVQ=
 github.com/urfave/cli v1.22.17/go.mod h1:b0ht0aqgH/6pBYzzxURyrM4xXNgsoT/n2ZzwQiEhNVo=
+github.com/vecil/fluxcd-pkg/apis/meta v0.0.0-20260603231400-6d1005a835a4 h1:M2qhBTtLS9sG/Xwi1ON98CYNE0bVTG0uRgGg96V7b5o=
+github.com/vecil/fluxcd-pkg/apis/meta v0.0.0-20260603231400-6d1005a835a4/go.mod h1:3DmYMnyH3XdY8/g2gXfsVIGEd/zpcB2PEkuurv2vgHU=
 github.com/x448/float16 v0.8.4 h1:qLwI1I70+NjRFUR3zs1JPUCgaCXSh3SW62uAKT1mSBM=
 github.com/x448/float16 v0.8.4/go.mod h1:14CWIYCyZA/cWjXOioeEpHeN/83MdbZDRQHoFcYsOfg=
 github.com/xdg-go/pbkdf2 v1.0.0/go.mod h1:jrpuAogTd400dnrH08LKmI/xc1MbPOebTwRqcT5RDeI=

@@ -161,7 +161,9 @@ func (in *KustomizationSpec) DeepCopyInto(out *KustomizationSpec) {
 	if in.DependsOn != nil {
 		in, out := &in.DependsOn, &out.DependsOn
 		*out = make([]DependencyReference, len(*in))
-		copy(*out, *in)
+		for i := range *in {
+			(*in)[i].DeepCopyInto(&(*out)[i])
+		}
 	}
 	if in.Decryption != nil {
 		in, out := &in.Decryption, &out.Decryption
